@@ -32,7 +32,7 @@ The following dependencies are downloaded and installed during the Docker-ized b
 
 ## Usage
 This microservice is created automatically on changes to this repository via Docker's public registry for:
-* [armhf](https://hub.docker.com/r/chalmersrevere/opendlv-device-rpi-v4l-armhf/tags/)
+* [armhf](https://hub.docker.com/r/chalmersrevere/opendlv-device-camera-rpi-armhf/tags/)
 
 To run this microservice using our pre-built Docker image to open an RPi camera, simply start it as follows:
 
