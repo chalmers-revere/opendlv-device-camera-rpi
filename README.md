@@ -27,7 +27,7 @@ dependency is shipped as part of the source distribution:
 
 The following dependencies are downloaded and installed during the Docker-ized build:
 * [libyuv](https://chromium.googlesource.com/libyuv/libyuv/+/master) - [![License: BSD 3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause) - [Google Patent License Conditions](https://chromium.googlesource.com/libyuv/libyuv/+/master/PATENTS)
-* [raspicam](https://github.com/cedricve/raspicam) - [![License: BSD 3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)/f80be22a1099b2a431c2796f529bb261064ec6b4/PATENTS)
+* [raspicam](https://github.com/cedricve/raspicam) - [![License: BSD 3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 
 ## Usage
