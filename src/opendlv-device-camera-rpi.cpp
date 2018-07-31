@@ -33,13 +33,11 @@
 int32_t main(int32_t argc, char **argv) {
     int32_t retCode{1};
     auto commandlineArguments = cluon::getCommandlineArguments(argc, argv);
-    if ( (0 == commandlineArguments.count("cid")) ||
-         (0 == commandlineArguments.count("width")) ||
+    if ( (0 == commandlineArguments.count("width")) ||
          (0 == commandlineArguments.count("height")) ||
          (0 == commandlineArguments.count("freq")) ) {
         std::cerr << argv[0] << " interfaces with the Raspberry PI camera to provide the captured image in two shared memory areas: one in I420 format and one in ARGB format." << std::endl;
         std::cerr << "Usage:   " << argv[0] << " --width=<width> --height=<height> --freq=<FPS> [--name.i420=<unique name for the shared memory in I420 format>] [--name.argb=<unique name for the shared memory in ARGB format>] [--verbose]" << std::endl;
-        std::cerr << "         --cid:       CID of the OD4Session to send h264 frames" << std::endl;
         std::cerr << "         --name.i420: name of the shared memory for the I420 formatted image; when omitted, video0.i420 is chosen" << std::endl;
         std::cerr << "         --name.argb: name of the shared memory for the ARGB formatted image; when omitted, video0.argb is chosen" << std::endl;
         std::cerr << "         --width:     desired width of a frame" << std::endl;
@@ -103,10 +101,7 @@ int32_t main(int32_t argc, char **argv) {
                 XMapWindow(display, window);
             }
 
-            // Interface to a running OpenDaVINCI session (ignoring any incoming Envelopes).
-            cluon::OD4Session od4{static_cast<uint16_t>(std::stoi(commandlineArguments["cid"]))};
-
-            while (!od4.isRunning()) {
+            while (!cluon::TerminateHandler::instance().isTerminated.load()) {
                 camera.grab();
 
                 sharedMemoryI420->lock();
