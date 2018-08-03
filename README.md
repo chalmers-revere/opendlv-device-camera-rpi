@@ -37,7 +37,7 @@ This microservice is created automatically on changes to this repository via Doc
 To run this microservice using our pre-built Docker image to open an RPi camera, simply start it as follows:
 
 ```
-docker run --rm -ti --init --ipc=host -v /tmp:/tmp -e DISPLAY=$DISPLAY chalmersrevere/opendlv-device-camera-rpi-armhf:v0.0.3 --width=640 --height=480 --freq=20 --verbose
+docker run --rm -ti --init --ipc=host -v /tmp:/tmp -e DISPLAY=$DISPLAY chalmersrevere/opendlv-device-camera-rpi-armhf:v0.0.4 --width=640 --height=480 --freq=20 --verbose
 ```
 
 

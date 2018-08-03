@@ -61,6 +61,7 @@ int32_t main(int32_t argc, char **argv) {
         raspicam::RaspiCam camera;
         camera.setWidth(WIDTH);
         camera.setHeight(HEIGHT);
+        camera.setFormat(raspicam::RASPICAM_FORMAT_YUV420);
         if (!camera.open()) {
             std::cerr << "[opendlv-device-camera-rpi]: Could not open camera." << std::endl;
             return retCode = 1;
@@ -106,7 +107,7 @@ int32_t main(int32_t argc, char **argv) {
 
                 sharedMemoryI420->lock();
                 {
-                    camera.retrieve(reinterpret_cast<unsigned char*>(sharedMemoryI420->data()), raspicam::RASPICAM_FORMAT_YUV420);
+                    camera.retrieve(reinterpret_cast<unsigned char*>(sharedMemoryI420->data()), raspicam::RASPICAM_FORMAT_IGNORE);
                 }
                 sharedMemoryI420->unlock();
 
