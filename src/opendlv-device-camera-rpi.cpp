@@ -105,7 +105,10 @@ int32_t main(int32_t argc, char **argv) {
             while (!cluon::TerminateHandler::instance().isTerminated.load()) {
                 camera.grab();
 
+                cluon::data::TimeStamp ts{cluon::time::now()};
+
                 sharedMemoryI420->lock();
+                sharedMemoryI420->setTimeStamp(ts);
                 {
                     camera.retrieve(reinterpret_cast<unsigned char*>(sharedMemoryI420->data()), raspicam::RASPICAM_FORMAT_IGNORE);
                 }
@@ -113,6 +116,7 @@ int32_t main(int32_t argc, char **argv) {
 
                 // Transform I420 frame to ARGB frame.
                 sharedMemoryARGB->lock();
+                sharedMemoryARGB->setTimeStamp(ts);
                 {
                     libyuv::I420ToARGB(reinterpret_cast<uint8_t*>(sharedMemoryI420->data()), WIDTH,
                                        reinterpret_cast<uint8_t*>(sharedMemoryI420->data()+(WIDTH * HEIGHT)), WIDTH/2,

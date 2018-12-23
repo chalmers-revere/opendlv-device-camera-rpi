@@ -24,7 +24,7 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}" ${CMAKE_MODULE_PATH})
 
 ################################################################################
 # Defining the relevant version of libcluon.
-set(CLUON_COMPLETE cluon-complete-v0.0.108.hpp)
+set(CLUON_COMPLETE cluon-complete-v0.0.117.hpp)
 
 ################################################################################
 # Set the search path for .cmake files.
