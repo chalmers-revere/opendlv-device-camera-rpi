@@ -1,3 +1,5 @@
+Moved to https://git.opendlv.org.
+
 ## OpenDLV Microservice to interface with RPi cameras
 
 This repository provides source code to interface with an RPi camera
